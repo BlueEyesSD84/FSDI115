@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
+{% if user.is_superuser %}
+<h1 class="on-blue-message">Welcome Home, Admin {{ user.username }}!</h1>
+{% elif not user.is_superuser and user.is_authenticated%}
+<h1 class="on-blue-message">Welcome Home, {{ user.username }}!</h1>
+{% else %}
+<h1 class="on-blue-message">Welcome Home, oh sentient one.</h1>
+{% endif %}
+<h3 class="on-blue-message">This is iSocial! And here lies home, type elements.</h3>
+{% endblock content %}
